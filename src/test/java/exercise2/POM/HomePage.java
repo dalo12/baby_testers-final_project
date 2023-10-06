@@ -9,7 +9,7 @@ public class HomePage {
 	protected WebDriver driver;
 	protected Wait<WebDriver> wait;
 	
-	protected By BUTTON_ADD_TO_CART = By.xpath("//*[@id=\"tbodyid\"]/div[2]/div/a");
+	protected By BUTTON_ADD_TO_CART = By.linkText("Add to cart");
 	protected By BUTTON_PLACE_ORDER = By.xpath("//*[@id=\"page-wrapper\"]/div/div[2]/button");
 	
 	
@@ -20,13 +20,13 @@ public class HomePage {
 	
 	public void clickIdProduct(int id) {
 		String CSS_PRODUCT = "[href=\"prod.html?idp_="+ id +"\"]";
-		CSS_PRODUCT = "[href=\"prod.html?idp_=2\"]";
-		By product = By.className(CSS_PRODUCT);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(product)));
+		By product = By.cssSelector(CSS_PRODUCT);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(product));
 		driver.findElement(product).click();
 	}	
 
 	public void clickAddToCart() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_ADD_TO_CART));
 		driver.findElement(BUTTON_ADD_TO_CART).click();
 	}
 	
