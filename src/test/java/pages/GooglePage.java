@@ -15,6 +15,9 @@ public class GooglePage {
 	protected By SEARCH_BAR = By.cssSelector("[type=\"search\"]");
 	protected By LIST_BOX = By.cssSelector("[role=\"listbox\"]");
 	protected By LIST_RESULTS = By.cssSelector("[data-view-type=\"1\"]");
+	protected final int QTY_RESULTS = 11;
+	protected String TAG_RESULT_IMAGE = "data-src";
+	
 	
 	public GooglePage(WebDriver driver, Wait<WebDriver> wait) {
 		this.driver = driver;
@@ -49,5 +52,33 @@ public class GooglePage {
 		resultList.remove("");
 		
 		return resultList;
+	}
+	
+	public void clickOnResult(WebElement result) {
+		result.click();
+	}
+	
+	public WebElement getFirstWithImage() {
+		WebElement resultWithImage = null;
+		WebElement result;
+		String XPATH = "";
+		boolean found = false;
+		int i = 1;
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(LIST_BOX));
+		
+		while(i<QTY_RESULTS && !found) {
+			XPATH = "//*[@role=\"presentation\"]/div[1]/div/ul/li["+ i + "]/div/div[1]";
+			result = driver.findElement(By.xpath(XPATH));
+			
+			if(result.getAttribute(TAG_RESULT_IMAGE) != "") {
+				resultWithImage = result;
+				found = true;
+			}
+			
+			i++;
+		}
+		
+		return resultWithImage;
 	}
 }

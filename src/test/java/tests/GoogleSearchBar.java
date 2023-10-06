@@ -36,6 +36,8 @@ public class GoogleSearchBar {
 	  googleHelper.printResults(resultListAutomation, "AUTOMATION");
 	  
 	  getAnswerCoincidence(googleHelper.checkCoincidences(resultListAuto, resultListAutomation));
+	  googlePage.clickOnResult(googlePage.getFirstWithImage());
+	  
   }
   
   protected void getAnswerCoincidence(boolean condition) {

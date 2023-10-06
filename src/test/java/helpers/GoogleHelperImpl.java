@@ -20,8 +20,6 @@ public class GoogleHelperImpl extends GoogleHelper {
 	@Override
 	public boolean checkCoincidences(List<String> list1, List<String> list2) {
 		return !Collections.disjoint(list1, list2);
-	}
-
-	
+	}	
 	
 }
