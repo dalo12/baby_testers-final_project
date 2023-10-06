@@ -12,7 +12,7 @@ public class CartPage {
 	
 	protected By CONFIRMATION_MESSAGE = By.xpath("/html/body/div[10]");
 	
-	protected By BUTTON_PURCHASE = By.xpath("//*[@id=\"orderModal\"]/div/div/div[3]/button[2]");
+	protected By BUTTON_PURCHASE = By.cssSelector("[onclick=\"purchaseOrder()\"]");
 	
 	protected By FORM_NAME = By.id("name");
 	protected By FORM_COUNTRY = By.id("country");
@@ -54,6 +54,10 @@ public class CartPage {
 	public void fillYear(String year) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(FORM_YEAR));
 		driver.findElement(FORM_YEAR).sendKeys(year);
+	}
+	
+	public void clickPurchase() {
+		driver.findElement(BUTTON_PURCHASE).click();
 	}
 	
 	public void checkConfirmationMessage() {

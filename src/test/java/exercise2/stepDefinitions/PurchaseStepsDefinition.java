@@ -65,6 +65,7 @@ public class PurchaseStepsDefinition {
 	  cartPage.fillCreditCard("4012888888881881");
 	  cartPage.fillMonth("12");
 	  cartPage.fillYear("2023");
+	  cartPage.clickPurchase();
   }
 
   @Then("^there is a confirmation message$")
