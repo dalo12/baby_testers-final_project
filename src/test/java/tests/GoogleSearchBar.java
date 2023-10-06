@@ -20,6 +20,7 @@ import org.testng.annotations.AfterTest;
 
 public class GoogleSearchBar {
 	protected static final String URL = "https://www.google.com";
+	protected static final String STEAM_URL = "store.steampowered.com";
 	protected WebDriver driver;
 	protected Wait<WebDriver> wait;
 	protected GooglePage googlePage;
@@ -37,7 +38,7 @@ public class GoogleSearchBar {
 	  
 	  getAnswerCoincidence(googleHelper.checkCoincidences(resultListAuto, resultListAutomation));
 	  googlePage.clickOnResult(googlePage.getFirstWithImage());
-	  
+	  getAnswerFirstElementFromPage(googlePage.checkFirstResultPage(STEAM_URL), STEAM_URL);
   }
   
   protected void getAnswerCoincidence(boolean condition) {
@@ -48,6 +49,16 @@ public class GoogleSearchBar {
 	  }
 	  
 	  System.out.println(coincidence);
+  }
+  
+  protected void getAnswerFirstElementFromPage(boolean condition, String page) {
+	  String answer = "The first obtained result is a page from " + page;
+	  
+	  if(!condition) {
+		  answer = "The first obtained result is NOT a page from " + page;
+	  }
+	  
+	  System.out.println(answer);
   }
   
   @BeforeTest

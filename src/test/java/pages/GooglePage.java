@@ -17,6 +17,7 @@ public class GooglePage {
 	protected By LIST_RESULTS = By.cssSelector("[data-view-type=\"1\"]");
 	protected final int QTY_RESULTS = 11;
 	protected String TAG_RESULT_IMAGE = "data-src";
+	protected String XPATH_FIRST_RESULT = "//*[@id=\"kp-wp-tab-overview\"]/div[1]/div/div/div/div/div/div[1]/div/div/span/a/div/div/div/cite";
 	
 	
 	public GooglePage(WebDriver driver, Wait<WebDriver> wait) {
@@ -80,5 +81,9 @@ public class GooglePage {
 		}
 		
 		return resultWithImage;
+	}
+	
+	public boolean checkFirstResultPage(String page) {
+		return driver.findElement(By.xpath(XPATH_FIRST_RESULT)).getText().contains(page);
 	}
 }
