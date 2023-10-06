@@ -1,10 +1,10 @@
-package tests;
+package exercise1.tests;
 
 import org.testng.annotations.Test;
 
-import helpers.GoogleHelper;
-import helpers.GoogleHelperImpl;
-import pages.GooglePage;
+import exercise1.helpers.GoogleHelper;
+import exercise1.helpers.GoogleHelperImpl;
+import exercise1.pages.GooglePage;
 
 import org.testng.annotations.BeforeTest;
 

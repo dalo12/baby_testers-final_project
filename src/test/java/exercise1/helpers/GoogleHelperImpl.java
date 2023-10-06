@@ -1,4 +1,4 @@
-package helpers;
+package exercise1.helpers;
 
 import java.util.Collections;
 import java.util.List;
