@@ -27,27 +27,33 @@ public class CartPage {
 	}
 	
 	public void fillName(String name) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FORM_NAME));
 		driver.findElement(FORM_NAME).sendKeys(name);
 	}
 	
 	public void fillCountry(String country) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FORM_COUNTRY));
 		driver.findElement(FORM_COUNTRY).sendKeys(country);
 	}
 	
 	public void fillCity(String city) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FORM_CITY));
 		driver.findElement(FORM_CITY).sendKeys(city);
 	}
 	
 	public void fillCreditCard(String creditCard) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FORM_CARD));
 		driver.findElement(FORM_CARD).sendKeys(creditCard);
 	}
 	
 	public void fillMonth(String month) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FORM_MONTH));
 		driver.findElement(FORM_MONTH).sendKeys(month);
 	}
 	
 	public void fillYear(String year) {
-		driver.findElement(FORM_MONTH).sendKeys(year);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FORM_YEAR));
+		driver.findElement(FORM_YEAR).sendKeys(year);
 	}
 	
 	public void checkConfirmationMessage() {
